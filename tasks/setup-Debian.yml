@@ -7,12 +7,13 @@
     state: absent
 
 - name: Ensure dependencies are installed.
+  become: yes
+  become_user: deuce
   apt:
     name:
       - apt-transport-https
       - ca-certificates
     state: present
-  become: yes
 
 - name: Add Docker apt key.
   apt_key:
